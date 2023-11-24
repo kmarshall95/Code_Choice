@@ -1,0 +1,28 @@
+---
+import characters from '../../characterJSON/characters';
+import CharacterBody from '../../components/characterProfile';
+import MainLayout from '../../layouts/mainLayout.astro'
+
+//create a function that will return the URL paths
+export async function getStaticPaths() {
+  
+  //map over the characters array and return an object with the params and props
+  const paths = characters.map(character => ({
+    params: { slug: character.Character_Name },
+    props: { character }
+  }));
+  console.log(paths);
+  return paths;
+}
+const { slug } = Astro.params;
+const { character } = Astro.props;
+
+
+console.log(slug);
+---
+
+<MainLayout>
+  <!-- Render other character details here -->
+  <CharacterBody value = {character} />
+
+</MainLayout>
