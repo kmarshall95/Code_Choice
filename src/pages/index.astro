@@ -1,8 +1,78 @@
 ---
 import MainLayout from '../layouts/mainLayout.astro'
+import Counter from '../components/state';
 ---
 <MainLayout>
-  <h1>Hello world!</h1>
+  <h1>Code Choice: the game</h1>
+    <div class="grid">
+        <div class="row">
+            <h2>About Code Choice</h2>
+            <div class="col-6">
+                <p>Code Choice is a game that teaches you how play the PS5</p>
+            </div>
+            <div class="col-6">
+                <img src="../images/characters/heroes/full_body/MaysGemConcept.png" alt="Mays Gem Concept" width="25%">
+                <Counter client:load/>
+                <Counter client:load/>
+            </div>
+        </div>
+    </div>
+
+  <!-- <div class="wave-background">
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
+  <div class="wave-background">
+    <div class="wave2"></div>
+    <div class="wave2"></div>
+</div> -->
+
 </MainLayout>
+
+<style>
+  .wave-background {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust as needed */
+    overflow: hidden;
+    background-color: #blue; /* Your choice of background color */
+}
+
+.wave {
+    position: absolute;
+    width: 400%; /* Ensures wave covers entire container */
+    height: 100%;
+    background: url('../images/characters/heroes/full_body/MaysGemConcept.png') repeat-x; /* Path to your wave image */
+    bottom: 0;
+    animation: wave-animation 10s linear infinite;
+}
+.wave2 {
+    position: absolute;
+    width: 400%; /* Ensures wave covers entire container */
+    height: 100%;
+    background: url('../images/characters/heroes/full_body/MaysGemConcept.png') repeat-x; /* Path to your wave image */
+    bottom: 0;
+    animation: wave-animation 10s infinite;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+</style>
 
 
